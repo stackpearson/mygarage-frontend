@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {connect} from 'react-redux'
+import {setUser} from './actions/userActions';
 
 const SignIn = (props) => {
 
@@ -28,6 +30,7 @@ const signUserIn = (e) => {
     .then((res) => {
         console.log(res)
         localStorage.setItem('auth-token', res.data.token)
+        props.setUser(res.data)
         props.history.push('/dashboard')
     })
     
@@ -64,4 +67,13 @@ const signUserIn = (e) => {
 
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+    return {
+        userOnProps: state.userReducer
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {setUser}
+)(SignIn)

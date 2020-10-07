@@ -6,6 +6,7 @@ import React from 'react';
 // import Nav from 'react-bootstrap/Nav';
 
 import { Navbar, Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 const Mynav = props => {
@@ -13,11 +14,11 @@ const Mynav = props => {
     return (<>
 
 <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">myGarage</Navbar.Brand>
-      <Nav className='flex-center'>
-        <Nav.Link href='#home'>Home</Nav.Link>
-        <Nav.Link href='#home'>Home</Nav.Link>
-        <Nav.Link href='#home'>Home</Nav.Link>
+    <Navbar.Brand><Link className='link-title' to='/dashboard'>myGarage</Link></Navbar.Brand>
+      <Nav>
+        <Nav.Link><Link className='undecorated-link'>Add Vehicle</Link></Nav.Link>
+        <Nav.Link><Link className='undecorated-link'>Add Service</Link></Nav.Link>
+        <Nav.Link><Link className='undecorated-link'>Logout</Link></Nav.Link>
       </Nav>
   </Navbar>
 
