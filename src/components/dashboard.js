@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const dashboard = props => {
+const Dashboard = props => {
 
     return (<> 
     
@@ -9,3 +9,5 @@ const dashboard = props => {
     
     </>)
 }
+
+export default Dashboard

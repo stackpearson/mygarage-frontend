@@ -45,3 +45,43 @@ html {
 .flex-center {
   display: none;
 }
+
+.form-container {
+  
+}
+
+.form {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 550px;
+  background-color:#0a0a0ab5;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #4c4a4a8c;
+}
+
+.form-title {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  color: grey;
+}
+
+.form-link {
+  text-decoration: none;
+  color: grey;
+  margin-top: 10px;
+}
+
+.form-link:hover {
+  color: white;
+}
+
