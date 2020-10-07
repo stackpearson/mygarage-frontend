@@ -29,6 +29,7 @@ const registerUser = (e) => {
     .then((res) => {
         console.log(res)
         localStorage.setItem('auth-token', res.data.token)
+        props.history.push('/dashboard')
     })
 }
 

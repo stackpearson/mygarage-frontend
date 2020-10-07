@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const SignIn = (props) => {
 
@@ -18,10 +19,24 @@ const handleChange = (e) => {
     setFormState(newFormState)
 }
 
+const signUserIn = (e) => {
+    e.preventDefault();
+    e.persist();
+
+    axios
+    .post('http://localhost:5000/api/auth/login', formState)
+    .then((res) => {
+        console.log(res)
+        localStorage.setItem('auth-token', res.data.token)
+        props.history.push('/dashboard')
+    })
+    
+}
+
     return (<> 
     
         <div className='form-container'>
-            <Form className='form'>
+            <Form className='form' onSubmit={signUserIn}>
 
                 <div className='form-title'>Sign In</div>
             

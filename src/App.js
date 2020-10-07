@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Mynav from './components/Nav';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
-import {Route, Switch, Link } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import {Route, Switch } from 'react-router-dom';
+import PrivateRoute from './utils/PrivateRoute';
 
 
 
@@ -16,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={SignIn} />
         <Route path='/register' component = {Register} />
+        <PrivateRoute path='/dashboard' component={Dashboard} />
       </Switch>
     </div>
 

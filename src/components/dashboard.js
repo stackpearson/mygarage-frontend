@@ -5,7 +5,7 @@ const Dashboard = props => {
 
     return (<> 
     
-        <div>Dav</div>
+        <div><p>Dashboard here</p></div>
     
     </>)
 }
