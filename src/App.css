@@ -132,6 +132,11 @@ html {
 
 /* Vehicle Styles */
 
+.mapped-vehicle {
+  border-radius: 10px;
+  box-shadow: 5px 10px #4c4a4a8c;
+}
+
 .vehicle-interface {
   display:flex;
   justify-content: space-between;
@@ -159,3 +164,29 @@ html {
   color:black;
   cursor: pointer;
 }
+
+/* Service Styles */
+
+.service-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.service-pairs {
+  padding-top: 10px;
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.service-pairs p {
+  line-height: 1em;
+}
+
+.service-entry {
+  font-weight: 900;
+}
+
+
