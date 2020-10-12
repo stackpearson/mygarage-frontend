@@ -2,9 +2,12 @@ import React from 'react';
 import {useEffect} from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom';
 import {setVehicles} from './actions/vehicleActions';
 import AddVehicle from './AddVehicle';
+import {setServices} from './actions/serviceActions';
 import {Alert} from 'react-bootstrap';
+import Vehicle from './Vehicle'
 
 
 const Dashboard = (props) => {
@@ -21,26 +24,39 @@ const Dashboard = (props) => {
         .catch((err) => {
             console.log(err)
         })
+
     }, [])
 
-    return(<> 
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`/services/${localStorage.getItem('userId')}`)
+        .then((res) => {
+            console.log(res)
+            props.setServices(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
+
+
+
+    return(<>
     
-        <div className='vehicle-container'>
         { props.vehiclesOnProps.userVehicles[0] ? (
 
-           <><h2>Your Vehicles</h2>
+           <><h2>Your Garage</h2>
+            <div className='vehicle-container'>
 
             { props.vehiclesOnProps.userVehicles.map(vehicle => {
                 return (
-                    <div classnme="mapped-vehicle">
-                        <p>{vehicle.vehicle_year} {vehicle.vehicle_make} {vehicle.vehicle_model}</p>
-                    </div>
+                    <Vehicle key={vehicle.id} services={props.serviceOnProps.userServices} vehicle={vehicle} />
                 )
             })
             
-            }</>
+            }
 
-
+            </div></>
 
         ) : (
 
@@ -48,23 +64,20 @@ const Dashboard = (props) => {
                 <p>Looks like your garage is empty, let's add a vehicle.</p>
             </Alert>
 
-            <AddVehicle /> </>
-            
-
+            <AddVehicle /></>
         )}
-            
-        </div>
     
     </>);
 }
 
 const mapStateToProps = state => {
     return {
-        vehiclesOnProps: state.vehicleReducer
+        vehiclesOnProps: state.vehicleReducer,
+        serviceOnProps: state.serviceReducer
     }
 }
 
 export default connect(
     mapStateToProps,
-    {setVehicles}
+    {setVehicles, setServices}
 )(Dashboard)

@@ -6,6 +6,7 @@ import SignIn from './components/SignIn';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import AddVehicle from './components/AddVehicle';
+import AddService from './components/AddService';
 import {Route, Switch } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/register' component={Register} />
         <PrivateRoute path='/dashboard' component={Dashboard} />
         <PrivateRoute path='/add-vehicle' component={AddVehicle} />
+        <PrivateRoute path='/add-service/:vehicleId' component={AddService} />
       </Switch>
     </div>
 
