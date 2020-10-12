@@ -23,6 +23,10 @@ function AddService({ vehicleId }) {
 
         {
             vehicle_id: params.vehicleId
+        },
+
+        {
+            user_id: localStorage.getItem('userId')
         }
 
     ]);
