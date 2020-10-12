@@ -1,10 +1,10 @@
 import React from 'react';
 import {useEffect} from 'react'
-import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {axiosWithAuth} from './utils/axiosWithAuth';
 import {connect} from 'react-redux'
-import {setVehicles} from '../actions/vehicleActions';
+import {setVehicles} from './actions/vehicleActions';
 import AddVehicle from './AddVehicle';
-import {setServices} from '../actions/serviceActions';
+import {setServices} from './actions/serviceActions';
 import {Alert} from 'react-bootstrap';
 import Vehicle from './Vehicle'
 

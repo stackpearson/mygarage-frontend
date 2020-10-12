@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {axiosWithAuth} from './utils/axiosWithAuth';
 import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import {addVehicle} from '../actions/vehicleActions';
+import {addVehicle} from './actions/vehicleActions';
 
 const AddVehicle = (props) => {
 

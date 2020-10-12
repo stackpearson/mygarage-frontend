@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Mynav from './components/Nav';
-import SignIn from './components/SignIn';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import AddVehicle from './components/AddVehicle';
-import AddService from './components/AddService';
+import Mynav from './Nav';
+import SignIn from './SignIn';
+import Register from './Register';
+import Dashboard from './Dashboard';
+import AddVehicle from './AddVehicle';
+import AddService from './AddService';
 import {Route, Switch } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 
