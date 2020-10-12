@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 const Register = (props) => {
 
 const [formState, setFormState] = useState({
@@ -25,10 +26,11 @@ const registerUser = (e) => {
     e.persist();
 
     axios
-    .post('http://localhost:5000/api/auth/register', formState)
+    .post('https://cors-anywhere.herokuapp.com/https://srp-my-garage.herokuapp.com/api/auth/register', formState)
     .then((res) => {
         console.log(res)
         localStorage.setItem('auth-token', res.data.token)
+        localStorage.setItem('userId', res.data.id)
         props.history.push('/dashboard')
     })
 }
@@ -40,12 +42,12 @@ const registerUser = (e) => {
 
                 <div className='form-title'>Register</div>
             
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group>
                     <Form.Label className='form-label'>Username</Form.Label>
                     <Form.Control type="text" name='username' value={formState.username} onChange={handleChange} placeholder="Enter username" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group>
                     <Form.Label className='form-label'>Password</Form.Label>
                     <Form.Control type="password" name='password' value={formState.password} onChange={handleChange} placeholder="Password" />
                 </Form.Group>

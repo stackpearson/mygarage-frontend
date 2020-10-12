@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {connect} from 'react-redux';
+import {setUser} from './actions/userActions';
 
-
-const SignIn = (props) => {
+const AddVehicle = (props) => {
 
 const [formState, setFormState] = useState({
-    username:'',
-    password:''
+    service_name: '',
+    service_date: '',
+    service_mileage: '',
+    next_service_date: '',
+    next_service_mileage: '',
+    service_notes: ''
 });
 
 const handleChange = (e) => {
@@ -29,7 +34,7 @@ const signUserIn = (e) => {
     .then((res) => {
         console.log(res)
         localStorage.setItem('auth-token', res.data.token)
-        localStorage.setItem('userId', res.data.id)
+        props.setUser(res.data)
         props.history.push('/dashboard')
     })
     
@@ -42,12 +47,12 @@ const signUserIn = (e) => {
 
                 <div className='form-title'>Sign In</div>
             
-                <Form.Group>
+                <Form.Group controlId="formBasicEmail">
                     <Form.Label className='form-label'>Username</Form.Label>
                     <Form.Control type="text" name='username' value={formState.username} onChange={handleChange} placeholder="Enter username" />
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group controlId="formBasicPassword">
                     <Form.Label className='form-label'>Password</Form.Label>
                     <Form.Control type="password" name='password' value={formState.password} onChange={handleChange} placeholder="Password" />
                 </Form.Group>
@@ -55,9 +60,6 @@ const signUserIn = (e) => {
                     Submit
                 </Button>
                 <br/>
-                <div className='form-link'>
-                    <Link className='form-link' to='/register'>New? Register Here</Link>
-                </div>
                 
             </Form>
         </div>
@@ -66,4 +68,14 @@ const signUserIn = (e) => {
 
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+    return {
+        userOnProps: state.userReducer,
+        vehicleOnProps: state.vehicleReducer
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {setUser}
+)(AddVehicle)

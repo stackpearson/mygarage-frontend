@@ -76,6 +76,11 @@ html {
   color: grey;
 }
 
+.vehicle {
+  margin-left: 10px;
+  margin-right: -5px;
+}
+
 .form-link {
   text-decoration: none;
   color: grey;
@@ -86,6 +91,16 @@ html {
   color: white;
 }
 
+.close{
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.close:hover {
+  cursor: pointer;
+  background-color: white;
+}
 
 /* Link Styles */
 

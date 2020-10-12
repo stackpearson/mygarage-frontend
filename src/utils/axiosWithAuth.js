@@ -4,9 +4,9 @@ export const axiosWithAuth = () => {
     const token = localStorage.getItem('auth-token')
 
     return axios.create({
-        baseURL: 'http://localhost:5000/api',
+        baseURL: 'https://cors-anywhere.herokuapp.com/https://srp-my-garage.herokuapp.com/api',
         headers: {
-            authorization: token
+            Authorization: `Bearer ${token}`
         }
     })
 }
