@@ -2,10 +2,9 @@ import React from 'react';
 import {useEffect} from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom';
-import {setVehicles} from './actions/vehicleActions';
+import {setVehicles} from '../actions/vehicleActions';
 import AddVehicle from './AddVehicle';
-import {setServices} from './actions/serviceActions';
+import {setServices} from '../actions/serviceActions';
 import {Alert} from 'react-bootstrap';
 import Vehicle from './Vehicle'
 
@@ -47,7 +46,6 @@ const Dashboard = (props) => {
 
            <><h2>Your Garage</h2>
             <div className='vehicle-container'>
-
             { props.vehiclesOnProps.userVehicles.map(vehicle => {
                 return (
                     <Vehicle key={vehicle.id} services={props.serviceOnProps.userServices} vehicle={vehicle} />

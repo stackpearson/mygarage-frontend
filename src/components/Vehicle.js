@@ -5,11 +5,6 @@ import Service from './Service';
 
 
 const Vehicle = (props) => {
-    let filteredServices = props.services.filter(services => services.id = props.vehicle.id)
-    
-
-    
-
 
     return(<> 
 
