@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Accordion, Card, Button} from 'react-bootstrap';
 import Service from './Service';

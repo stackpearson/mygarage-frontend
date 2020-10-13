@@ -135,6 +135,7 @@ html {
 .mapped-vehicle {
   border-radius: 10px;
   box-shadow: 5px 10px #4c4a4a8c;
+  margin: 18px 0px;
 }
 
 .vehicle-interface {
@@ -146,6 +147,7 @@ html {
 
 .vehicle-container {
   border: 1px solid black;
+  padding: 10px;
   border-radius: 10px;
   max-width: 750px;
   margin: 0 auto;

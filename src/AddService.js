@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-// import axios from 'axios'
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import axios from 'axios'
+// import {axiosWithAuth} from './utils/axiosWithAuth';
 import {useHistory} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 
@@ -44,12 +44,12 @@ function AddService({ vehicleId }) {
         e.preventDefault();
         e.persist();
 
-        // let config = {
-        //     headers:{'Authorization': `Bearer ${localStorage.getItem('auth-token')}`}
-        // }
+        let config = {
+            headers:{'Authorization': `Bearer ${localStorage.getItem('auth-token')}`}
+        }
 
-        axiosWithAuth()
-        .post('/services', formState)
+        axios
+        .post('https://srp-my-garage.herokuapp.com/api/services', formState, config)
         .then((res) => {
             console.log(res)
         })
