@@ -7,7 +7,7 @@ export const vehicleReducer = (state = initialState, action) => {
         case 'SET_VEHICLES':
             return {
                 ...state,
-                userVehicles: action.payload
+                userVehicles: action.payload.filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i)
             }
 
         case 'ADD_VEHICLE':
