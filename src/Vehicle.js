@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Accordion, Card, Button} from 'react-bootstrap';
 import Service from './Service';
 
 
 const Vehicle = (props) => {
+ 
+    let services = props.services.filter(service => service.vehicle_id === props.vehicle.id)
+
+    // const [serviceState, setServiceState] = useState(services)
 
     return(<> 
 
@@ -24,10 +28,10 @@ const Vehicle = (props) => {
                         </Card.Header>
                         <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            {props.services.map(service => {
+                            {services.map(serv => {
                                 return (
                                         <div className='services-container'>
-                                            <Service key={service.id} service={service} />
+                                            <Service key={serv.id} service={serv} />
                                         </div>
                                 )
                             })}

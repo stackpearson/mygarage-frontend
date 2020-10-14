@@ -26,6 +26,18 @@ const Dashboard = (props) => {
 
     }, [])
 
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`/services/${localStorage.getItem('userId')}`)
+        .then((res) => {
+            console.log(res)
+            props.setServices(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
+
 
     return(<>
     
@@ -35,7 +47,7 @@ const Dashboard = (props) => {
             <div className='vehicle-container'>
             { props.vehiclesOnProps.userVehicles.map(vehicle => {
                 return (
-                    <Vehicle key={vehicle.id} services={props.serviceOnProps.userServices} vehicle={vehicle} />
+                    <Vehicle key={vehicle.id} vehicleId={vehicle.id} services={props.serviceOnProps.userServices} vehicle={vehicle} />
                 )
             })
             
