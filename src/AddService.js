@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'
-// import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithAuth} from './utils/axiosWithAuth';
 import {useHistory} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 
@@ -10,9 +10,11 @@ function AddService({ vehicleId }) {
     let params = useParams();
     let history = useHistory();
 
-    const [formState, setFormState] = useState([
-        
-        {
+    const [formState, setFormState] = useState({
+
+        serviceData:
+
+        [{
             service_name: '',
             service_date: '',
             service_mileage: '',
@@ -29,7 +31,7 @@ function AddService({ vehicleId }) {
             user_id: localStorage.getItem('userId')
         }
 
-    ]);
+        ]});
 
     const handleChange = (e) => {
         e.persist();
@@ -44,12 +46,12 @@ function AddService({ vehicleId }) {
         e.preventDefault();
         e.persist();
 
-        let config = {
-            headers:{'Authorization': `Bearer ${localStorage.getItem('auth-token')}`}
-        }
+        // let config = {
+        //     headers:{'Authorization': `Bearer ${localStorage.getItem('auth-token')}`}
+        // }
 
-        axios
-        .post('https://srp-my-garage.herokuapp.com/api/services', formState, config)
+        axiosWithAuth()
+        .post('/services', formState)
         .then((res) => {
             console.log(res)
         })

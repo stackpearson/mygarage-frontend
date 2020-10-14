@@ -25,7 +25,8 @@ const signUserIn = (e) => {
     e.persist();
 
     axios
-    .post('https://cors-anywhere.herokuapp.com/https://srp-my-garage.herokuapp.com/api/auth/login', formState)
+    // .post('https://cors-anywhere.herokuapp.com/https://srp-my-garage.herokuapp.com/api/auth/login', formState)
+    .post('http://localhost:5000/api/auth/login', formState)
     .then((res) => {
         console.log(res)
         localStorage.setItem('auth-token', res.data.token)
