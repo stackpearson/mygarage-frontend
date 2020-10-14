@@ -26,19 +26,6 @@ const Dashboard = (props) => {
 
     }, [])
 
-    useEffect(() => {
-        axiosWithAuth()
-        .get(`/services/${localStorage.getItem('userId')}`)
-        .then((res) => {
-            console.log(res)
-            props.setServices(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }, [])
-
-
 
     return(<>
     

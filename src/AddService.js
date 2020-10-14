@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios'
 import {axiosWithAuth} from './utils/axiosWithAuth';
 import {useHistory} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
@@ -10,28 +9,22 @@ function AddService({ vehicleId }) {
     let params = useParams();
     let history = useHistory();
 
-    const [formState, setFormState] = useState({
 
-        serviceData:
+    const [formState, setFormState] = useState(
 
-        [{
+        {
             service_name: '',
             service_date: '',
             service_mileage: '',
             next_service_date: '',
             next_service_mileage: '',
             service_notes: '',
-        },
-
-        {
-            vehicle_id: params.vehicleId
-        },
-
-        {
+            vehicle_id: params.vehicleId,
             user_id: localStorage.getItem('userId')
         }
 
-        ]});
+        );
+
 
     const handleChange = (e) => {
         e.persist();
