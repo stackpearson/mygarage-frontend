@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {axiosWithAuth} from './utils/axiosWithAuth';
 import {connect} from 'react-redux'
 import {setVehicles} from './actions/vehicleActions';
@@ -9,23 +9,6 @@ import Vehicle from './Vehicle'
 
 
 const Dashboard = (props) => {
-
-    // const [vehicles, setVehicles] = useState([])
-
-    
-    //    let unique = 
-    //    console.log('unique', unique)
-
-    //    if (unique[0]) {
-    //     props.setVehicles(unique)
-    //    }
-
-      
-    
-
-    
-
-    
 
     useEffect(() => {
         axiosWithAuth()

@@ -28,12 +28,17 @@ const addVehicle = (e) => {
     e.persist();
 
     axiosWithAuth()
-    .post(`https://cors-anywhere.herokuapp.com/https://srp-my-garage.herokuapp.com/api/vehicles/${localStorage.getItem('userId')}`, formState)
+    .post(`/vehicles/${localStorage.getItem('userId')}`, formState)
     .then((res) => {
         console.log(res)
-        props.addVehicle(formState)
+        // props.addVehicle(formState)
        
     })
+    .catch((err) => {
+        console.log(err);
+    })
+
+    closeForm();
     
 }
 

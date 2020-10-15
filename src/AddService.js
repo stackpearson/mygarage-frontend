@@ -51,6 +51,8 @@ function AddService({ vehicleId }) {
         .catch((err) => {
             console.log(err)
         })
+
+        closeForm();
         
     }
 

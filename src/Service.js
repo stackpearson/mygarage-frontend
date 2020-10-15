@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import React from 'react';
 
 const Service = (props) => {
 

@@ -105,17 +105,15 @@ html {
 /* Link Styles */
 
 .undecorated-link {
-  text-decoration: none;
-  color: white;
+  color: white !important;
   margin: 5px;
 }
 
 .undecorated-link:hover {
   text-decoration: none;
   background-color: white;
-  color:black;
-  font-weight: 900;
-  padding: 5px;
+  color:black !important;
+  font-weight: 700;
   border-radius: 10px;
 }
 
@@ -126,6 +124,10 @@ html {
 }
 
 .link-title {
+  color: white;
+}
+
+.link-title:hover {
   color: white;
 }
 
