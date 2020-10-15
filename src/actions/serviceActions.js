@@ -7,3 +7,7 @@ export const addService = userService => {
     return {type: 'ADD_SERVICE', payload: userService}
 
 }
+
+export const removeService = userService => {
+    return {type: 'REMOVE_SERVICE', payload: userService}
+}

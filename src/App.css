@@ -167,6 +167,25 @@ html {
   background-color: white;
   color:black;
   cursor: pointer;
+  border: 1px solid black;
+}
+
+.vehicle-delete {
+  display:inline-block;
+  /* padding: 0px 5px; */
+  padding: 0px 5px 5px 5px;
+  margin: 0px 5px;
+  line-height: 25px;
+  background-color:black;
+  color: white;
+  border-radius: 10px;
+  
+}
+
+.vehicle-delete:hover {
+  cursor: pointer;
+  background-color: red;
+  color: black;
 }
 
 /* Service Styles */
@@ -183,6 +202,7 @@ html {
   width: 300px;
   margin: 0 auto;
   border: 1px solid black;
+  position: relative;
 }
 
 .service-pairs p {
@@ -191,6 +211,23 @@ html {
 
 .service-entry {
   font-weight: 900;
+}
+
+.service-control {
+  position: absolute;
+  top: 2.5%;
+  right: 3.5%;
+  background-color: black;
+  color: white;
+  padding: 0px 3px;
+  border-radius: 10px;
+}
+
+.service-control:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 

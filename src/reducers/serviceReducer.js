@@ -16,6 +16,18 @@ export const serviceReducer = (state = initialState, action) => {
                 userServices: state.userServices.concat(action.payload)
             };
 
+        case 'REMOVE_SERVICE':
+            return {
+                ...state,
+                userServices: state.userServices.filter(service => {
+                    if (service.id !== action.payload) {
+                        return {
+                            service
+                        }
+                    }
+                })
+            };
+
             default: return state;
     }
 }

@@ -56,10 +56,8 @@ const Dashboard = (props) => {
         ) : (
 
             <><Alert variant='dark'>
-                <p>Looks like your garage is empty, let's add a vehicle.</p>
-            </Alert>
-
-            <AddVehicle /></>
+                <p>Looks like your garage is empty, get started by adding a vehicle.</p>
+            </Alert></>
         )}
     
     </>);

@@ -16,6 +16,18 @@ export const vehicleReducer = (state = initialState, action) => {
                 userVehicles: state.userVehicles.concat(action.payload)
             };
 
+        case 'REMOVE_VEHICLE':
+            return {
+                ...state,
+                userVehicles: state.userVehicles.filter(vehicle => {
+                    if (vehicle.id !== action.payload) {
+                        return {
+                            vehicle
+                        }
+                    }
+                })
+            };
+
             default: return state;
     }
 }
