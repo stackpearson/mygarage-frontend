@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 import {setVehicles} from './actions/vehicleActions';
 import {setServices} from './actions/serviceActions';
 import {Alert} from 'react-bootstrap';
-import Vehicle from './Vehicle'
+import Vehicle from './Vehicle';
+import AddVehicle from './AddVehicle';
 
 
 const Dashboard = (props) => {
@@ -57,6 +58,8 @@ const Dashboard = (props) => {
             <><Alert variant='dark'>
                 <p>Looks like your garage is empty, get started by adding a vehicle.</p>
             </Alert></>
+
+
         )}
     
     </>);
