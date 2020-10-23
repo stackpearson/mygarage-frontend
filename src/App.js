@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 import AddVehicle from './AddVehicle';
 import AddService from './AddService';
 import {Route, Switch } from 'react-router-dom';
-import PrivateRoute from './utils/PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 
 

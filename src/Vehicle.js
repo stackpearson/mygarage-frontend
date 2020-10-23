@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Accordion, Card, Button} from 'react-bootstrap';
 import Service from './Service';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithAuth} from './axiosWithAuth';
 import {connect} from 'react-redux';
 import {removeVehicle} from './actions/vehicleActions';
 

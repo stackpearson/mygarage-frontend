@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithAuth} from './axiosWithAuth';
 import {connect} from 'react-redux'
 import {setVehicles} from './actions/vehicleActions';
 import {setServices} from './actions/serviceActions';

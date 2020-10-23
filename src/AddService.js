@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithAuth} from './axiosWithAuth';
 import {useHistory} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 

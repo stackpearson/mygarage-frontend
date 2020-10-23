@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {removeService} from './actions/serviceActions';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithAuth} from './axiosWithAuth';
 
 const Service = (props) => {
 
