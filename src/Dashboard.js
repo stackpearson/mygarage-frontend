@@ -5,24 +5,25 @@ import {setVehicles} from './actions/vehicleActions';
 import {setServices} from './actions/serviceActions';
 import {Alert} from 'react-bootstrap';
 import Vehicle from './Vehicle';
-import AddVehicle from './AddVehicle';
+
 
 
 const Dashboard = (props) => {
+
+    const { setVehicles } = props;
+    const { setServices } = props;
 
     useEffect(() => {
         axiosWithAuth()
         .get(`/vehicles/${localStorage.getItem('userId')}`)
         .then((res) => {
-            console.log(res.data)
             props.setVehicles(res.data)
-            setVehicles(res.data)
         })
         .catch((err) => {
             console.log(err)
         })
 
-    }, [])
+    }, [setVehicles])
 
     useEffect(() => {
         axiosWithAuth()
@@ -34,7 +35,7 @@ const Dashboard = (props) => {
         .catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [setServices])
 
 
     return(<>
