@@ -3,6 +3,8 @@ import { Form, Button } from 'react-bootstrap';
 import {axiosWithAuth} from './axiosWithAuth';
 import {useHistory} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {addService} from './actions/serviceActions';
 
 function AddService({ vehicleId }) {
 
@@ -39,14 +41,14 @@ function AddService({ vehicleId }) {
         e.preventDefault();
         e.persist();
 
-        // let config = {
-        //     headers:{'Authorization': `Bearer ${localStorage.getItem('auth-token')}`}
-        // }
-
+        let newService = {}
         axiosWithAuth()
+        
         .post('/services', formState)
         .then((res) => {
-            console.log(res)
+            newService = res.data.serviceAdded
+            newService.vehicle_id = params.vehicleId
+            addService(newService)
         })
         .catch((err) => {
             console.log(err)
@@ -110,4 +112,13 @@ function AddService({ vehicleId }) {
 
     }
 
-export default AddService;
+    const mapStateToProps = state => {
+        return {
+            vehicleOnProps: state.vehicleReducer
+        }
+    }
+    
+    export default connect(
+        mapStateToProps,
+        {addService}
+    )(AddService)

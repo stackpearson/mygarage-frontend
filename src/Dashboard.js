@@ -29,7 +29,7 @@ const Dashboard = (props) => {
         axiosWithAuth()
         .get(`/services/${localStorage.getItem('userId')}`)
         .then((res) => {
-            console.log(res)
+            // console.log(res)
             props.setServices(res.data)
         })
         .catch((err) => {
