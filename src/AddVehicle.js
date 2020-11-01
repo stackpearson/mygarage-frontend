@@ -30,8 +30,8 @@ const addVehicle = (e) => {
     axiosWithAuth()
     .post(`/vehicles/${localStorage.getItem('userId')}`, formState)
     .then((res) => {
-        console.log(res)
-        // props.addVehicle(formState)
+        // console.log(res)
+        props.addVehicle(formState)
        
     })
     .catch((err) => {
