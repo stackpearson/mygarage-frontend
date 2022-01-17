@@ -12,7 +12,7 @@ const [formState, setFormState] = useState({
     password:''
 });
 
-const [isRegistering, setRegister] = useState(true);
+const [isRegistering, setRegister] = useState(false);
 
 const handleChange = (e) => {
     e.persist();
@@ -44,9 +44,7 @@ const registerUser = (e) => {
         {isRegistering ? (
 
             <div className='spinner-container'>
-                <div className="spinner-border" role='status' >
-                    <span className='visually-hidden'></span>
-                </div>
+                <div className="spinner-border" role='status' />
                 <div>Initial registration can take up to a minute, please bear with us :)</div>
             </div>
 
